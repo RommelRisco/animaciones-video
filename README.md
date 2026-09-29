@@ -1,10 +1,14 @@
-# animaciones-video 🎬✏️
+# Animaciones-video 🎬✏️
 
 Skill para **Claude** que crea animaciones por código listas para usar en tus videos: escenas explicativas estilo pizarra que se escriben solas, tipografía cinética, listas, cifras que cuentan, gráficas, comparaciones, capturas señaladas, una mascota que actúa, rótulos (*lower thirds*), subtítulos karaoke y transiciones con fondo transparente.
 
 Todo se genera con código (SVG + GSAP), se renderiza cuadro por cuadro con Chromium y sale en el formato que tu editor necesita: **MP4** (9:16, 16:9, 1:1, 4:5), **MOV ProRes 4444 / WebM con transparencia**, **PNG** o **GIF**, con efectos de sonido sintetizados.
 
+Demo renderizado con claude:
+
 ![Demo](docs/demo.gif)
+
+Diferentes estilos: pizarra, pizarrón, cuaderno, kraft, minimal, oscuro, etc.
 
 ![Estilos: pizarra, pizarrón, cuaderno, kraft, minimal, oscuro](docs/estilos.jpg)
 
@@ -27,7 +31,7 @@ Claude entiende el pedido, te muestra un guion corto, arma el clip, revisa fotos
 
 ### En Claude Code
 ```bash
-git clone https://github.com/<tu-usuario>/animaciones-video.git ~/.claude/skills/animaciones-video
+git clone https://github.com/RommelRisco/animaciones-video.git ~/.claude/skills/animaciones-video
 ```
 Abre Claude Code y pídele una animación. También puedes invocarlo con `/animaciones-video`.
 
@@ -84,7 +88,6 @@ animaciones-video/
 └── docs/                 # imágenes del README
 ```
 
-## Créditos y licencias
-- Idea inspirada en [santmun/video-pizarra](https://github.com/santmun/video-pizarra); este motor está escrito desde cero.
+## Licencias
 - [GSAP](https://gsap.com) (licencia estándar gratuita de GSAP), [Playwright](https://playwright.dev) (Apache-2.0) y fuentes de [Fontsource](https://fontsource.org) (SIL OFL) se instalan con npm; no se redistribuyen aquí.
 - Código de este repositorio: [MIT](LICENSE) © 2026 Rommel Risco.
