@@ -1,0 +1,20 @@
+{
+  "name": "animaciones-video-proyecto",
+  "private": true,
+  "type": "module",
+  "description": "Proyecto de animaciones para video generado con el skill animaciones-video",
+  "scripts": {
+    "preview": "node preview.mjs",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "@fontsource/bebas-neue": "^5.2.5",
+    "@fontsource/caveat": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
+    "@fontsource/kalam": "^5.2.5",
+    "@fontsource/patrick-hand": "^5.2.5",
+    "@fontsource/poppins": "^5.2.5",
+    "gsap": "^3.13.0",
+    "playwright": "^1.49.0"
+  }
+}

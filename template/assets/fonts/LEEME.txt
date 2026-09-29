@@ -1,0 +1,2 @@
+Pon aquí tus fuentes (.ttf, .otf, .woff2) y declaralas en el clip:
+  fuentes: [{ familia: "Mi Marca", archivo: "assets/fonts/MiMarca-Bold.ttf", peso: 700 }]

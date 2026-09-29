@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>animaciones-video · vista previa</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #16161a; color: #eee; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  html.alfa, html.alfa body { background: transparent; }
+  html.render body { overflow: hidden; }
+  html.render #stage { position: absolute; left: 0; top: 0; }
+  html.preview body { display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+  html.preview.alfa body { background: repeating-conic-gradient(#2a2a30 0% 25%, #202025 0% 50%) 50% / 32px 32px; }
+  html.preview #stage { box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  #av-error { position: fixed; inset: 20px; color: #ffb4b4; background: #2a1414; padding: 20px; white-space: pre-wrap; font: 14px ui-monospace, monospace; border-radius: 10px; overflow: auto; }
+</style>
+</head>
+<body>
+<svg id="stage" xmlns="http://www.w3.org/2000/svg"></svg>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<script type="module">
+  import { boot } from './engine/core.js';
+  const q = new URLSearchParams(location.search);
+  const render = q.has('render');
+  document.documentElement.classList.add(render ? 'render' : 'preview');
+  const clipPath = (q.get('clip') || 'clips/ejemplo-explicativo.js').replace(/^\.?\//, '');
+  try {
+    const mod = await import('./' + clipPath + '?v=' + Date.now());
+    const M = await boot(mod.default, { query: q });
+    if (!render) (await import('./engine/player.js')).player(M);
+  } catch (err) {
+    window.BOOT_ERROR = String((err && err.stack) || err);
+    console.error(err);
+    const pre = document.createElement('pre'); pre.id = 'av-error';
+    pre.textContent = 'Error al construir el clip:\n\n' + window.BOOT_ERROR;
+    document.body.appendChild(pre);
+  }
+</script>
+</body>
+</html>
